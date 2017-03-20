@@ -1,0 +1,26 @@
+@import url("//fonts.googleapis.com/css?family=Bungee+Shade");
+* {
+  font-family: "Bungee Shade";
+}
+
+body {
+}
+
+h1 {
+  font-family: 'Kanit', sans-serif;
+  color: #2c3e50;
+  margin-top: 600px;
+  margin-bottom: 50px;
+  font-size: 30px;
+  text-align: center;
+}
+@media screen and (max-width: 850px) {
+  h1 {
+    font-size: 2em;
+  }
+}
+@media screen and (max-width: 550px) {
+  h1 {
+    font-size: 1.5em;
+  }
+}

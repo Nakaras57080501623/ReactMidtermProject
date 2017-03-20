@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>มาลิสต์งานกันเถอะ | แก้ไข</title>
+ <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Kanit|Open+Sans" rel="stylesheet">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style_Time.css">
+
+      <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+  <div id="app2"></div>
+  <div id="appedit">
+  <h2>มาดูเแต้มบุญกันเถอะ</h2>
+  <center>
+<section class="calculator" id="body">
+<form action="" class="wage-gap" id="wage-gap" onsubmit="return false;">
+  จำนวนบุญที่โยมสร้าง 
+  <span class="salary-initial">
+  <input type="number" min="0" step="100" id="salary-initial" name="salary-initial" onchange="calculateTotal()"/><label class="input__label"> <span class="input__label-content">บาท ประเภทบุญที่สร้าง </span></label></span>
+  
+  <span class="input">
+  <select class="input" id="make_merits" name="make_merits" onchange="calculateTotal()">
+    <option value="Money">
+      ถวายปัจจัย(โปรดใส่เป็นจำนวนเงิน)
+    </option>
+    <option value="Build">
+      สร้างศาสนสถาน
+    </option>
+    <option value="Food">
+      ถวายเครื่องอุปโภค/บริโภค
+    </option>
+    <option value="Repair">
+      ทํานุบํารุงศาสนสถาน
+    </option>
+    <option value="Pray">
+      เจริญธรรม(ทำวัดสวดมนต์)
+    </option>
+  </select>
+  
+    <span id="salary-calculated"></span>
+</form>
+</section>
+<section class="data">
+<table>
+  <thead>
+  <br>
+    <tr>
+      ตารางเเสดงเเต้มบุญนำพาสู่สววรค์ทั้ง 7 ชั้น
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ชั้นสวรรค์</td>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เเต้มบุญ</td>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ชั้นดาวโรงเรียน</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100,000,000,000.25</td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ชั้นดาวมหาลัย</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100,000,000,000.50</td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ชั้นดาวรถ</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100,000,000,000.75</td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ชั้น death star</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100,000,000,001</td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ชั้นดาวเทียม</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100,000,000,002</td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ชั้นดาวขำมิน</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NaN (ทำให้เยอะกว่าทุกคนบนโลกใบนี้)</td>
+  </tr>
+  </tbody>
+</table>
+</section>
+</center>
+
+  <form id="addTodo" @submit.prevent="addTodo">
+    <button type="button" class="btn btn-primary">
+      <a href="index_list.html" target="_top" style="color:#FFFFFF;">
+      <i class="fa fa-chevron-left"></i></a>
+    </button>
+  </form>
+
+  <transition-group name="slide" tag="ul" id="todoList">
+    <li class="todo" 
+        v-for="(todo, index) in filteredTodos" 
+        :key="todo.id">
+      <div v-show="todo.editing === false">
+        <div class="todo__content"> 
+        <span 
+                class="todo__text"
+                :class="{ complete : todo.complete }"
+                > 
+            {{ todo.text }} 
+          </span>
+        </div>
+      </div>
+      <div v-show="todo.editing === true">
+        <form @submit.prevent="toggleEditing(todo)"
+              class="todo__content">
+          <span 
+                class="todo__text"
+                :class="{ complete : todo.complete }"
+                > 
+            {{ todo.text }} 
+          </span>
+          <input @input="updateTodo"
+                 :value="todo.text"
+                 :id="todo.id"
+                 class="editing todo__input"
+                 ref="edit_input">
+          <span class="todo__buttons">
+            <button class="btn btn-primary" 
+                    type="submit">
+              <i class="fa fa-check"></i>
+            </button>
+          </span>
+        </form>
+      </div>
+    </li>
+  </transition-group>
+
+  <div id="filterButtons">
+    <button class="btn btn-primary"
+            :class="filter === 'all' ? 'active' : ''"
+            :disabled="filter === 'all' ? true : false"
+            @click="setFilter('all')">
+      <i class="fa fa-list"></i>
+    </button>
+    <button class="btn btn-primary"
+            :class="filter === 'incomplete' ? 'active' : ''"
+            :disabled="filter === 'incomplete' ? true : false"
+            @click="setFilter('incomplete')">
+      <i class="fa fa-square-o"></i>
+    </button>
+    <button class="btn btn-primary"
+            :class="filter === 'complete' ? 'active' : ''"
+            :disabled="filter === 'complete' ? true : false"
+            @click="setFilter('complete')">
+      <i class="fa fa-check-square-o"></i>
+    </button>
+  </div>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.4/vue.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vuex/2.2.1/vuex.js'></script>
+
+    <script src="js/index.js"></script>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+    <script src="js/index_Time.js"></script>
+
+    <script src="js/index_Rank.js"></script>
+
+</body>
+</html>

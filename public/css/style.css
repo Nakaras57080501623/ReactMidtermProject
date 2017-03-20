@@ -1,0 +1,237 @@
+/**
+* Variables
+**/
+/**
+* Global
+**/
+* {
+  box-sizing: border-box;
+}
+
+button {
+    color: white;
+}
+
+body, html {
+  min-height: 100%;
+  min-width:  100%;
+  background: #ffed66;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: 'Kanit', sans-serif;
+  color: #fcfcfc;
+  text-align: center;
+  text-shadow:
+}
+
+h2 {
+  font-family: 'Kanit', sans-serif;
+  color: #444444;
+  text-align: center;
+  font-size: 30px;
+  
+}
+
+input, span {
+  border: 0;
+  border-radius: 5px;
+  font-family: 'Kanit', sans-serif;
+  white-space: wrap;
+  padding-left: 1em;
+  min-width: 0;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+/**
+* Components
+**/
+.btn {
+  min-height: 43px;
+  min-width: 43px;
+  border: 0;
+  padding: 0;
+  color: #fcfcfc;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  font-size: 1.25em;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
+  background: #444444;
+}
+.btn-primary:hover {
+  background: #00c66a;
+}
+
+.bg-primary {
+  background: #26C6DA;
+  color: #fcfcfc;
+}
+
+.active {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
+.editing {
+  border: 1px dashed #444444;
+}
+
+.box-shadow {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.todo {
+  padding: 0.5em 0;
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.todo div {
+  width: 100%;
+}
+.todo .todo__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.todo .todo__content .todo__input {
+  -webkit-box-flex: 6;
+      -ms-flex: 6;
+          flex: 6;
+  height: 43px;
+  line-height: 43px;
+  padding-left: 0.25em;
+}
+.todo .todo__content .todo__text {
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 43px;
+  line-height: 43px;
+  white-space: nowrap;
+  overflow-x: scroll;
+  padding-left: 0.25em;
+}
+.todo .todo__content .todo__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.todo .todo__content .todo__buttons button {
+  margin: 0 0.25em;
+}
+
+/**
+* Sections
+**/
+#app {
+  position: absolute;
+  max-width: 50%;
+  top: 1;
+  bottom: 3;
+  left: 0;
+  right: 0;
+  width: 95%;
+  margin: 1em auto;
+  overflow: hidden;
+}
+
+#appedit {
+  position: absolute;
+  max-width: 50%;
+  top: 1;
+  bottom: 3;
+  left: 0;
+  right: 0;
+  width: 95%;
+  margin: 1em auto;
+  overflow: hidden;
+}
+
+#addTodo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em 0;
+  box-shadow: -1px 5px 8px 0px rgba(0, 0, 0, 0.15);
+}
+#addTodo > * {
+  margin: 0.25em;
+}
+#addTodo input {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+
+}
+
+#todoList {
+  height: 275px;
+  position: relative;
+  padding: 0.5em 0;
+  list-style: none;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+#filterButtons {
+  position: relative;
+  z-index: 100;
+  padding: 1em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  box-shadow: 1px -5px 8px 0px rgba(0, 0, 0, 0.15);
+}
+#filterButtons > * {
+  margin: 0 1em;
+}
+
+.slide-enter, .slide-enter-active {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  opacity: 0;
+}
+
+.slide-leave, .slide-leave-active {
+  opacity: 0;
+  position: absolute;
+}

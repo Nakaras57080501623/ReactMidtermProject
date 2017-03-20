@@ -1,0 +1,41 @@
+#clock {
+  font-family: 'Kanit', sans-serif;
+  height: 20vh;
+  width:100vw ;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  background-color: #111;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+#clock h1 {
+  font-size: 7em;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+#clock h1::-moz-selection {
+  background-color: transparent;
+}
+#clock h1::selection {
+  background-color: transparent;
+}
+.faded {
+  opacity: 0;
+}
+#instruction {
+  position: absolute;
+  width: 100vw;
+  text-align: center;
+  color: #fff;
+  font-family: 'Kanit', sans-serif;
+  font-size: 18px;
+}
